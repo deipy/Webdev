@@ -64,25 +64,41 @@ function colorModeToggle() {
 
   function goDark(dark, animate) {
     if (dark) {
-      localStorage.setItem("dark-mode", "true");
-      htmlElement.classList.add("dark-mode");
-      setColors(darkColors, animate);
+        localStorage.setItem("dark-mode", "true");
+        htmlElement.classList.add("dark-mode");
+        setColors(darkColors, animate);
 
-      document.getElementsByClassName("div-gradient")[0].style.display="block";
+        var elements = document.getElementsByClassName("div-gradient");
+        if (elements.length === 0) {
+            console.warn("Element with class 'div-gradient' not found");
+            return;
+        }else{
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "block";
+            }
+        }
 
-      togglePressed = "true";
+        togglePressed = "true";
     } else {
-      localStorage.setItem("dark-mode", "false");
-      htmlElement.classList.remove("dark-mode");
-      setColors(lightColors, animate);
-      document.getElementsByClassName("div-gradient")[0].style.display="none";
-      togglePressed = "false";    
+        localStorage.setItem("dark-mode", "false");
+        htmlElement.classList.remove("dark-mode");
+        setColors(lightColors, animate);
+        var elements = document.getElementsByClassName("div-gradient");
+        if (elements.length === 0) {
+            console.warn("Element with class 'div-gradient' not found");
+            return;
+        }else{
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+        }
+        togglePressed = "false";    
     }
-    
+
     if (typeof toggleEl !== "undefined") {
-      toggleEl.forEach(function (element) {
+        toggleEl.forEach(function (element) {
         element.setAttribute("aria-pressed", togglePressed);
-      });
+    });
     }
 
 
