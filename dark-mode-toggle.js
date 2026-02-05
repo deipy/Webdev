@@ -75,7 +75,7 @@ function colorModeToggle() {
       localStorage.setItem("dark-mode", "false");
       htmlElement.classList.remove("dark-mode");
       setColors(lightColors, animate);
-      document.getElementsByClassName("div-gradient")[0].style.display="none");
+      document.getElementsByClassName("div-gradient")[0].style.display="none";
       togglePressed = "false";    
     }
     
