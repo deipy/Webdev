@@ -1,5 +1,5 @@
 function colorModeToggle() {
-  
+    console.log("This is a test");
     function attr(defaultVal, attrVal) {
     const defaultValType = typeof defaultVal;
     if (typeof attrVal !== "string" || attrVal.trim() === "") return defaultVal;
@@ -117,4 +117,5 @@ function colorModeToggle() {
     });
   });
 }
+
 colorModeToggle();
